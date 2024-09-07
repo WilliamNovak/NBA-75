@@ -63,3 +63,14 @@ function pesquisar() {
     // Atribui os resultados gerados à seção HTML
     section.innerHTML = resultados;
 }
+
+const inputPesquisa = document.getElementById("campo-pesquisa");
+
+// Adiciona um event listener para o evento keydown
+inputPesquisa.addEventListener("keydown", function(event) {
+  // Verifica se a tecla pressionada é Enter
+  if (event.keyCode === 13 || event.key === "Enter") {
+    // Chama a função que contém a ação desejada
+    pesquisar();
+  }
+});
