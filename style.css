@@ -1,0 +1,228 @@
+/* Importa a fonte Chakra Petch do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* Estiliza o corpo da página */
+body {
+    font-family: "Chakra Petch", sans-serif; /* Define a fonte padrão */
+    background: url('img/background.jpg') no-repeat center; /* Imagem de fundo da página */
+    background-size: cover; /* Imagem tela inteira */
+    display: flex; /* Usa Flexbox para layout */
+    flex-direction: column; /* Alinha os itens na vertical */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    height: 100vh; /* Preenche a altura total da viewport */
+    margin: 0; /* Remove margem */
+    padding: 0; /* Remove espaçamento */
+}
+
+/* Estiliza o conteudo principal */
+main {
+    width: 100%; /* Largura de 100% */
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Alinha os itens na vertical */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+/* Estiliza os títulos h1 */
+h1 {
+    font-size: 2.5rem; /* Tamanho da fonte */
+    color: white; /* Cor do texto */
+    text-align: center; /* Alinha o texto ao centro */
+    letter-spacing: 0.4rem; /* Espaçamento entre letras */
+}
+
+/* Estiliza as seções da página */
+section {
+    display: flex; /* Usa Flexbox para layout */
+    flex-direction: column; /* Alinha os itens na vertical */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo de cada seção */
+}
+
+/* Estiliza os inputs dentro das seções */
+section input {
+    width: 30rem; /* Largura dos inputs */
+    border: none; /* Remove a borda padrão */
+    padding: 1rem; /* Espaçamento interno */
+    border-radius: 1.5rem; /* Borda arredondada */
+    margin-bottom: 1rem; /* Espaçamento abaixo dos inputs */
+    color: #45474B; /* Cor do texto */
+    font-size: 1rem; /* Tamanho da fonte */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+}
+
+/* Estiliza os botões dentro das seções */
+section button {
+    padding: 0.8rem 1.2rem; /* Espaçamento interno do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 1.5rem; /* Borda arredondada */
+    background-color: #6da2d8; /* Cor de fundo do botão */
+    color: #F5F7F8; /* Cor do texto do botão */
+    font-size: 1rem; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+/* Estiliza a caixa de resultados da pesquisa */
+.resultados-pesquisa {
+    max-width: 60rem; /* Largura máxima da caixa de resultados */
+    height: 46vh; /* Altura máxima da caixa de resultados */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
+    padding: 1rem; /* Espaçamento interno */
+    border-radius: 0.6rem; /* Borda arredondada */
+}
+
+/* Estiliza cada item de resultado */
+.item-resultado {
+    display: flex; /* Display dos itens, para alinhar foto e descricao */
+    background: #FFFFFF; /* Cor de fundo dos itens */
+    border-radius: 0.6rem; /* Borda arredondada */
+    padding: 1rem; /* Espaçamento interno */
+    margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    max-height: 35vh; /* Altura maxima de 35 da viewporte */
+    position: relative; /* Posicao relativa */
+}
+
+/* Estiliza a div da imagem dos itens */
+.item-image {
+    width: 20%; /* 20% da largura do item */
+    display: flex; /* Utiliza flexbox */
+    justify-content: center; /* Alinha ao centro horizontalmente */
+    align-items: center; /* Alinha ao centro verticalmente */
+}
+
+/* Estiliza a imagem */
+.item-image img {
+    width: 90%; /* 90% da largura da div */
+    height: 100%; /* 100% da altura */
+    border-radius: 0.6rem; /* Arredonda borda da imagem */
+}
+
+/* Estiliza os títulos dentro dos itens de resultado */
+.item-resultado h2 {
+    margin: 0.5rem 0 0.5rem 0; /* Margens do item */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    color: #222831; /* Cor do texto */
+}
+
+/* Estiliza a div da descricao */
+.item-description {
+    width: 80%; /* Ocupa 80% do item */
+    height: 100%; /* Altura de 100% */
+    padding-left: 1rem; /* Adiciona espaçamento na esquerda */
+    display: flex; /* Utiliza flexbox */
+    flex-direction: column; /* Alinha verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+}
+
+/* Estiliza informacoes */
+.description-info {
+    display: flex; /* Utiliza flexbox para alinhar na mesma linha */
+}
+
+/* Estiliza numero do jogador */
+.item-number {
+    position: absolute; /* Utiliza posicao absoluta */
+    top: 2%; /* 2% no topo do item */
+    right: 3%; /* 3% no topo do item */
+    font-size: 1.2rem; /* Ajusta tamanho da fonte */
+    font-weight: 800; /* Ajusta peso da fonte */
+}
+
+/* Estiliza os links dentro dos itens de resultado */
+.item-resultado a {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: #30475E; /* Cor do texto dos links */
+}
+
+/* Estiliza os links quando são passados o mouse sobre */
+.item-resultado a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estiliza a descrição meta dentro dos itens de resultado */
+.descricao-meta {
+    color: #45474B; /* Cor do texto */
+    margin: 0.5rem; /* Margem acima e abaixo */
+    margin-left: 0; /* Remove margem na esquerda */
+}
+
+/* Estiliza mensagem de nao encontrado */
+.not-found {
+    font-size: 20px; 
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+/* Estiliza o rodapé da página */
+footer {
+    background-color: #F5F7F8; /* Cor de fundo do rodapé */
+    color: #45474B; /* Cor do texto */
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 0; /* Espaçamento interno */
+    width: 100%; /* Largura total da página */
+    position: absolute; /* Posiciona o rodapé */
+    bottom: 0; /* Alinha ao fundo da página */
+    font-size: 1rem; /* Tamanho da fonte */
+}
+
+/* Ajusta estilos para largura maxima de 1024px */
+@media (max-width: 1024px) {
+    .resultados-pesquisa {
+        max-width: 100%;
+    }
+
+    .item-image {
+        width: 30%;
+    }
+
+    .item-image img {
+        height: 80%;
+    }
+
+    .item-description {
+        width: 70%;
+    }
+}
+
+/* Ajusta estilos para largura maxima de 480px */
+@media (max-width: 480px) {
+    .pesquisa {
+        width: 100%;
+    }
+
+    section input {
+        width: 80%; 
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .item-resultado h2 {
+        font-size: 1rem;
+    }
+
+    .item-description {
+        font-size: 0.6rem;
+    }
+
+    .description-info {
+        display: block;
+    }
+
+    .item-image img {
+        height: 70%;
+    }
+
+    .item-number {
+        top: 1%;
+        right: 6%;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
