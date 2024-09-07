@@ -2,7 +2,7 @@
 
 ## Description
 
-:computer: [Demo Page]()
+:computer: [Demo Page](https://williamnovak.github.io/NBA-75/)
 
 Developed during Alura Dev Immersion in partnership with Google Gemini.
 
