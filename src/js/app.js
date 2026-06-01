@@ -24,7 +24,7 @@ function pesquisar() {
     let tags = "";
 
     // Itera sobre cada dado da lista de dados
-    for let dado of dados) {
+    for (let dado of dados) {
         titulo = dado.titulo.toLowerCase().replace(regex, '')
         descricao = dado.descricao.toLowerCase().replace(regex, '')
         posicao = dado.posicao.toLowerCase().replace(regex, '')
