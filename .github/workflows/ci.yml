@@ -36,7 +36,10 @@ jobs:
 
       - name: Validar Sintaxe JavaScript
         run: |
-          find src/js -name "*.js" -exec node --check {} \;
+          for file in $(find src/js -name "*.js"); do
+            echo "Validando arquivo $file"
+            node --check "$file" || exit 1
+          done
 
       - name: Validar HTML com htmlhint
         run: |
