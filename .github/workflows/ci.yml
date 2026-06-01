@@ -1,0 +1,44 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Verificar estrutura
+        run: |
+          test -f index.html
+          test -d src/js
+          test -d src/css
+          test -d src/img
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Validar Sintaxe JavaScript
+        run: |
+          find src/js -name "*.js" -exec node --check {} \;
+
+      - name: Validar HTML com htmlhint
+        run: |
+          npm install -g htmlhint
+          htmlhint index.html
