@@ -23,7 +23,7 @@ let dados = [
         link: "https://pt.wikipedia.org/wiki/Stephen_Curry",
         tags: "mvp, arremesso, jararaca, brinquedinho, splash brother, recorde, campeão",
         imagem: "img/players/StephenCurry.jpg"
-    }
+    },
     {
         titulo: "LeBron James",
         descricao: "Um dos atletas mais completos da história, LeBron James é conhecido por sua versatilidade e longevidade. Com múltiplos títulos e recordes, ele é um dos maiores nomes da NBA.",
