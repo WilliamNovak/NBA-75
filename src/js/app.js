@@ -36,7 +36,7 @@ function pesquisar() {
             resultados += `
             <div class="item-resultado">
                 <div class="item-image">
-                    <img src="${dado.imagem}" alt="Imagem do jogador"/>
+                    <img src="src/${dado.imagem}" alt="Imagem do jogador"/>
                 </div>
                 <div class="item-description">
                     <h2>

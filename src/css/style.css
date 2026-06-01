@@ -4,7 +4,7 @@
 /* Estiliza o corpo da página */
 body {
     font-family: "Chakra Petch", sans-serif; /* Define a fonte padrão */
-    background: url('img/background.jpg') no-repeat center; /* Imagem de fundo da página */
+    background: url('../img/background.jpg') no-repeat center; /* Imagem de fundo da página */
     background-size: cover; /* Imagem tela inteira */
     display: flex; /* Usa Flexbox para layout */
     flex-direction: column; /* Alinha os itens na vertical */
