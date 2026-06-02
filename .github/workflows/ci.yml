@@ -1,19 +1,22 @@
-name: CI Pipeline
+name: Pipeline Integração Contínua (CI)
 
+# Pipeline executa a cada push na branch main
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
+  # Build inicial do projeto
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Utiliza ubuntu para rodar pipeline
 
     steps:
+      # Faz checkout no codigo do projeto
       - name: Checkout do código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
+      # Como o projeto é simples e não possui dependências, apenas verifica estrutura
       - name: Verificar estrutura
         run: |
           test -f index.html
@@ -21,19 +24,27 @@ jobs:
           test -d src/css
           test -d src/img
 
+  # Testes ao buildar projeto
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Utiliza ubuntu para rodar pipeline
     needs: build
 
     steps:
+      # Faz checkout no codigo do projeto
       - name: Checkout do código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
+      # Instala o node js
       - name: Instalar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
+      
+      # Instala o html-validate
+      - name: Instalar html-validate
+        run: npm install -g html-validate
 
+      # Utiiliza o node para validar arquivos javascript
       - name: Validar Sintaxe JavaScript
         run: |
           for file in $(find src/js -name "*.js"); do
@@ -41,7 +52,11 @@ jobs:
             node --check "$file" || exit 1
           done
 
+      # Utiliza html-validate para validar arquivo index.html
       - name: Validar HTML com htmlhint
-        run: |
-          npm install -g html-validate
-          html-validate index.html
+        run: html-validate index.html
+  
+  # Deploy do projeto
+  # deploy:
+  #   runs-on: ubuntu-latest # Utiliza ubuntu para rodar pipeline
+  #   needs: test
