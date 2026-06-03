@@ -39,6 +39,7 @@ The pipeline is automatically triggered on every push to the `main` branch and i
 - Installs Node.js environment
 - Performs JavaScript syntax validation using Node
 - Validates HTML using html-validate
+- Validates infrastructure using Terraform
 
 The CI configuration can be found in `.github/workflows/ci.yml`
 
