@@ -43,6 +43,10 @@ jobs:
       # Instala o html-validate
       - name: Instalar html-validate
         run: npm install -g html-validate
+      
+      # Instalar Terraform
+      - name: Instalar Terraform
+        uses: hashicorp/setup-terraform@v4
 
       # Utiiliza o node para validar arquivos javascript
       - name: Validar Sintaxe JavaScript
@@ -55,6 +59,14 @@ jobs:
       # Utiliza html-validate para validar arquivo index.html
       - name: Validar HTML com htmlhint
         run: html-validate index.html
+
+      # Inicializar Terraform
+      - name: Terraform Init
+        run: terraform -chdir=infra init
+
+      # Validar arquivos Terraform (.tf)
+      - name: Terraform Validate
+        run: terraform -chdir=infra validate
   
   # Deploy do projeto
   # deploy:
