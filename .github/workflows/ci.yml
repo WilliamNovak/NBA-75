@@ -1,4 +1,4 @@
-name: Pipeline Integração Contínua (CI)
+name: Pipeline Integração e Entrega Contínua (CI/CD)
 
 # Pipeline executa a cada push na branch main
 on:
@@ -69,6 +69,30 @@ jobs:
         run: terraform -chdir=infra validate
   
   # Deploy do projeto
-  # deploy:
-  #   runs-on: ubuntu-latest # Utiliza ubuntu para rodar pipeline
-  #   needs: test
+  deploy:
+    runs-on: ubuntu-latest # Utiliza ubuntu para rodar pipeline
+    needs: test
+
+    steps:
+      # Faz checkout no codigo do projeto
+      - name: Checkout do código
+        uses: actions/checkout@v6
+
+      # Configura as credenciais de acesso ao bucket na AWS
+      - name: Configurar credenciais AWS
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # Faz o deploy dos arquivos sincronizados para S3
+      - name: Deploy para S3
+        run: |
+          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "infra/*" \
+            --exclude "*.md"
