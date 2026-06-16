@@ -1,0 +1,9 @@
+services:
+  nba-75-website:
+    build: .
+    container_name: nba-75-website
+
+    ports:
+      - "8080:80"
+
+    restart: unless-stopped
