@@ -1,9 +1,13 @@
 services:
   nba-75-website:
+    # Constroi a imagem utilizando o Dockerfile na raiz do projeto
     build: .
+    # Define o nome do container
     container_name: nba-75-website
 
+    # Mapeia a porta 8080 local para a porta 80 do container
     ports:
       - "8080:80"
 
+    # Reinicia automaticamente caso o container pare de executar
     restart: unless-stopped
