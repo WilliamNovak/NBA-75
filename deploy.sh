@@ -1,5 +1,5 @@
 # Interrompe e remove containers antigos
-echo "Parando containers amtigos"
+echo "Parando containers antigos"
 docker compose down
 
 # Reconstroi a imagem Docker e inicia os containers
