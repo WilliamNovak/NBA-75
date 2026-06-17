@@ -25,11 +25,11 @@
 * **CSS**
 * **Javascript**
 
-## CI Pipeline
+## CI/CD Pipeline
 
-This project implements a Continuous Integration (CI) pipeline using GitHub Actions to ensure code quality and structural consistency on every update to the repository.
+This project implements a Continuous Integration and Deployment (CI/CD) pipeline using GitHub Actions to ensure code quality and structural consistency on every update to the repository.
 
-The pipeline is automatically triggered on every push to the `main` branch and is divided into two main stages:
+The pipeline is automatically triggered on every push to the `main` branch and is divided into three main stages:
 
 #### Build Stage
 - Verifies the project structure
@@ -40,6 +40,11 @@ The pipeline is automatically triggered on every push to the `main` branch and i
 - Performs JavaScript syntax validation using Node
 - Validates HTML using html-validate
 - Validates infrastructure using Terraform
+
+#### Deploy Stage
+- Authenticates with AWS using GitHub Secrets
+- Synchronizes the application files with the S3 bucket
+- Publishes the latest version of the website automatically
 
 The CI configuration can be found in `.github/workflows/ci.yml`
 
@@ -101,3 +106,25 @@ aws_session_token=YOUR_SESSION_TOKEN
     ````
 
 Terraform will output the website URL and you can access the application directly through this URL in your browser.
+
+## Docker Container and Components
+
+The application was containerized using Docker and orchestrated using Docker Compose.
+
+- **Dockerfile**: Defines how the application image is built using Nginx
+- **docker-compose.yml**: Manages container execution and port mappings
+- **deploy.sh**: Automates the deployment process by rebuilding and restarting containers
+
+#### Running the Application
+
+1. Start the application:
+    ````bash
+    ./deploy.sh
+    ````
+
+2. Access the application: http://localhost:8080
+
+3. Stop the application:
+    ````bash
+    docker compose down
+    ````
